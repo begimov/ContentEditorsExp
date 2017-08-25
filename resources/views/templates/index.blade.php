@@ -7,7 +7,16 @@
             <div class="col-md-12 text-center">LANDING</div>
         </div>
     </div>
-    <landing data="{{ $landing  }}"></landing>
+    <landing data="{{ json_encode($landing) }}" inline-template >
+        <div>
+            @foreach($landing['blocks'] as $block)
+                @include($block['template'], ['block' => $block])
+            @endforeach
+        </div>
+    </landing>
+
+{{--    <landing data="{{ $landing  }}"></landing>--}}
+
     {{--<form action="{{ route('test.store') }}" method="POST">--}}
         {{--{{ csrf_field() }}--}}
         {{--@foreach($landing['blocks'] as $block)--}}

@@ -6,6 +6,12 @@
             </template>
             <button type="submit">SAVE</button>
         </form>
+
+        <form method="POST" @submit.prevent="submitData">
+            <template v-for="block in landing.blocks">
+                <template v-html="rawHtml">{{ block.template }}</template>
+            </template>
+        </form>
     </div>
 </template>
 
