@@ -23,3 +23,6 @@ Route::get('login', function () {
     auth()->loginUsingId(1);
     return redirect()->intended();
 });
+
+Route::get('/test', 'TestController@index');
+Route::post('/test', 'TestController@store')->name('test.store');

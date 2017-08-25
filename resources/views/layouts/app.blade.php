@@ -83,5 +83,10 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    <script>
+        jQuery(document).ready(function() {
+            @yield('postJquery');
+        });
+    </script>
 </body>
 </html>
