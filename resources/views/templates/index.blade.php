@@ -1,31 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">LANDING</div>
         </div>
-    </div>
-    <landing data="{{ json_encode($landing) }}" inline-template >
-        <div>
-            @foreach($landing['blocks'] as $block)
-                @include($block['template'], ['block' => $block])
-            @endforeach
+        <div class="row">
+            <landing data="{{ json_encode($landing) }}" inline-template>
+                    <form action="{{ route('test.store') }}" method="post">
+                        @{{ message }}
+                        @foreach($landing['blocks'] as $block)
+                            @include($block['template'], ['block' => $block])
+                        @endforeach
+                        <input type="submit"><br><br>
+                        <p><a href="#" @click.prevent="clicked">Click</a></p>
+                        <div v-html="newblock"></div>
+                    </form>
+            </landing>
         </div>
-    </landing>
-
-{{--    <landing data="{{ $landing  }}"></landing>--}}
-
-    {{--<form action="{{ route('test.store') }}" method="POST">--}}
-        {{--{{ csrf_field() }}--}}
-        {{--@foreach($landing['blocks'] as $block)--}}
-            {{--@include($block['template'], ['block' => $block])--}}
-        {{--@endforeach--}}
-        {{--<button type="submit">Сохранить</button>--}}
-    {{--</form>--}}
-
+    </div>
 @endsection
+
 
 @section('postJquery')
     @parent
