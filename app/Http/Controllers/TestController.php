@@ -29,6 +29,8 @@ class TestController extends Controller
             ]
         ];
 
+        $landing = collect($landing)->toJson();
+
         return view('templates.index',compact('landing'));
     }
 

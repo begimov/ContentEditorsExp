@@ -77,8 +77,9 @@
                 </div>
             </div>
         </nav>
-
-        @yield('content')
+        <div id="app">
+            @yield('content')
+        </div>
     </div>
 
     <!-- Scripts -->
