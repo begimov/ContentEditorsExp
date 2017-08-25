@@ -9,7 +9,7 @@
     <form action="{{ route('test.store') }}" method="POST">
         {{ csrf_field() }}
         @foreach($landing['blocks'] as $block)
-            @include($block['template'], ['elements' => $block['elements']])
+            @include($block['template'], ['block' => $block])
         @endforeach
         <button type="submit">Сохранить</button>
     </form>
